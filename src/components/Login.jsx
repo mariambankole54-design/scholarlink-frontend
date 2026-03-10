@@ -30,9 +30,9 @@ const Login = () => {
       alert("Login successful!");
 
       if (userRole === 'admin') {
-        navigate('/admin-dashboard');
+        navigate('/AdminDashboard');
       } else {
-        navigate('/');
+        navigate('/UserDashboard');
       }
 
     } catch (err) {
