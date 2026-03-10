@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -10,9 +11,12 @@ const Signup = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
         try{
-            await axios.post('https://localhost:5000/api/auth/register', {
+            await axios.post('http://localhost:5005/api/auth/signup', {
+                name,
                 email,
                 password
+            }, {
+                headers: { 'Content-Type': 'application/json' }
             });
 
             alert("Account created! Please Login.");
@@ -27,8 +31,18 @@ const Signup = () => {
             <form onSubmit={handleSignup}>
                 <div className="form-group">
                     <input
+                    type="text"
+                    placeholder="Full Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    />
+                </div>
+                <div className="form-group">
+                    <input
                     type="email"
                     placeholder="Email Address"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     />
@@ -41,7 +55,7 @@ const Signup = () => {
                     required
                     />
                 </div>
-                <button type="submit" className="login=btn">Sign Up</button>
+                <button type="submit" className="login-btn">Sign Up</button>
             </form>
         </div>
     );

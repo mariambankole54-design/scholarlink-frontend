@@ -30,7 +30,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:5000/api/universities', 
+      await axios.post('http://localhost:5005/api/universities', 
         { name, country }, 
         { headers: { 'x-auth-token': token } }
       );

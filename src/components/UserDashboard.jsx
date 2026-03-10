@@ -6,7 +6,7 @@ const UserDashboard = () => {
   const [universities, setUniversities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/universities')
+    axios.get('http://localhost:5005/api/universities')
       .then(res => setUniversities(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -15,7 +15,7 @@ const UserDashboard = () => {
     const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:5000/api/applications', 
+      await axios.post('http://localhost:5005/api/applications', 
         { universityId: uniId }, 
         { headers: { 'x-auth-token': token } }
       );

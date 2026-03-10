@@ -3,7 +3,8 @@ import Home from './Home';
 import Login from './components/Login'; 
 import Signup from './components/Signup';
 import './App.css';
-import AdminDashboard from './components/AdminDashboard';<Route path="/admin-dashboard" element={<AdminDashboard />} />
+import AdminDashboard from './components/AdminDashboard';
+import UserDashboard from './components/UserDashboard';
 
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/Admindashboard" element={<AdminDashboard />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Userdashboard" element={<UserDashboard />} />
         </Routes>
       </div>
     </Router>
