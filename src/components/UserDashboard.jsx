@@ -6,7 +6,7 @@ const UserDashboard = () => {
   const [universities, setUniversities] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5005/api/universities')
+    axios.get('http://localhost:5005/api/universities/all')
       .then(res => setUniversities(res.data))
       .catch(err => console.log(err));
   }, []);

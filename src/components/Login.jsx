@@ -15,10 +15,10 @@ const Login = () => {
         password
       });
 
+
       const { token, user } = response.data;
 
       if (!token) {
-        alert("Login failed: no token received");
         return;
       }
 
@@ -27,8 +27,6 @@ const Login = () => {
       localStorage.setItem('token', token);
       localStorage.setItem('role', userRole);
 
-      alert("Login successful!");
-
       if (userRole === 'admin') {
         navigate('/AdminDashboard');
       } else {
@@ -36,8 +34,7 @@ const Login = () => {
       }
 
     } catch (err) {
-      console.error(err);
-      alert("Login error: " + (err.response?.data?.msg || err.message));
+      console.log(err);
     }
   };
 

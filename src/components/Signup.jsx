@@ -1,61 +1,75 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const [name, setName] = useState('');
+    const [name, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handleUsernameChange = (e) => setUsername(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
+
     const handleSignup = async (e) => {
         e.preventDefault();
-        try{
-            await axios.post('http://localhost:5005/api/auth/signup', {
-                name,
-                email,
-                password
-            }, {
-                headers: { 'Content-Type': 'application/json' }
-            });
+        const body = {
+            email,
+            setName,
+            password
+        }
 
-            alert("Account created! Please Login.");
-            navigate('/login');
-        } catch (err) {
-            alert("Signup Error: " + (err.response?.data?.msg || "Something went wrong"));
-        } 
+        console.log(body)
+
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/signup`, body)
+            console.log("user registered", response)
+        } catch (error) {
+            console.log(error)
+        }
     };
+        
+
     return (
-        <div className="login-container">
+
+        <div>
+
             <h2>Create ScholarLink Account</h2>
+
             <form onSubmit={handleSignup}>
-                <div className="form-group">
+
+                    <label>Username</label>
                     <input
                     type="text"
-                    placeholder="Full Name"
+                    placeholder="Username"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
+                    onChange={handleUsernameChange}
                     />
-                </div>
-                <div className="form-group">
+
+                    <br />
+                
+                    <label>Email</label>
                     <input
                     type="email"
                     placeholder="Email Address"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
+                    onChange={handleEmailChange}
                     />
-                </div>
-                <div className="form-group">
+
+                    <br />
+                
+                    <label>Password</label>
                     <input
                     type="password"
                     placeholder="Password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
+                    value={password}
+                    onChange={handlePasswordChange}
                     />
-                </div>
-                <button type="submit" className="login-btn">Sign Up</button>
+
+                    <br />
+                
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     );
