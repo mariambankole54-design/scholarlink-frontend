@@ -2,10 +2,11 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+  const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ const Login = () => {
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', userRole);
+      localStorage.setItem('student', JSON.stringify(user));
 
       if (userRole === 'admin') {
         navigate('/AdminDashboard');

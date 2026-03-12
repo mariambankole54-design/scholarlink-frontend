@@ -371,3 +371,101 @@ input:focus {
 .admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
 .admin-table th { text-align: left; padding: 15px; background: #f8fafc; color: #64748b; }
 .admin-table td { padding: 15px; border-top: 1px solid #f1f5f9; }
+
+
+/*User dashboard*/
+
+.dashboard-container {
+  padding: 40px;
+  background: #f7f9fc;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-image: url("https://res.cloudinary.com/dco9lqvij/image/upload/v1773096482/Scholarlink_website_web_dev_ylzreu.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  
+}
+
+.dashboard-header h2 {
+  font-size: 34px;
+  color: #042a4f;
+  
+}
+
+.dashboard-header p {
+  color: #042a4f;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* GRID */
+
+.university-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+
+.uni-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  border: 1px solid #e2e8f0;
+  transition: all 0.25s ease;
+}
+
+.uni-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.uni-content h3 {
+  font-size: 20px;
+  color: #0f172a;
+}
+
+.location {
+  color: #64748b;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* BUTTON */
+
+.apply-btn {
+  margin-top: 20px;
+  padding: 10px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #2563eb;
+  color: white;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+.apply-btn:hover {
+  background: #1d4ed8;
+}
