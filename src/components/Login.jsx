@@ -27,7 +27,7 @@ import { useNavigate } from 'react-router-dom';
 
       localStorage.setItem('token', token);
       localStorage.setItem('role', userRole);
-      localStorage.setItem('student', JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
 
       if (userRole === 'admin') {
         navigate('/AdminDashboard');

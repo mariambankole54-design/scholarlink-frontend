@@ -5,6 +5,8 @@ import Signup from './components/Signup';
 import './App.css';
 import AdminDashboard from './components/AdminDashboard';
 import UserDashboard from './components/UserDashboard';
+import Applications from './components/MyApplications';
+import StudentProfile from './components/StudentProfile';
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/Signup">Sign up</Link>
+          {/* <Link to="/profile">Profile</Link> */}
         </div>
       </nav>
 
@@ -26,6 +29,8 @@ function App() {
           <Route path="/Admindashboard" element={<AdminDashboard />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/Applications" element={<Applications />} />
+          <Route path="/Profile" element={<StudentProfile />} />
         </Routes>
       </div>
     </Router>

@@ -1,4 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 import axios from 'axios';
 
@@ -9,6 +12,7 @@ const UserDashboard = () => {
   const [level, setLevel] = useState('');
   const [specialisation, setSpecialisation] = useState('');
   const [country, setCountry] = useState('');
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -17,21 +21,22 @@ const UserDashboard = () => {
       .catch(err => console.log(err));
   }, []);
 
+
   const handleApply = async (uniId) => {
     const token = localStorage.getItem('token');
     //It was breaking because I did not add the user, I only added the token. phew!
     const user = JSON.parse(localStorage.getItem('student'));
 
-    if (!user) {
+    /*if (!user) {
       console.log("Not student data");
-    }
+    } */
 
     console.log(token);
-// adding this to see if studentId will be found now 
+    // adding this to see if studentId will be found now 
     try {
       const applicationData = {
-      universityId: uniId,
-      studentId: user.id
+        universityId: uniId,
+        studentId: student.id
       };
 
       await axios.post(
@@ -53,25 +58,25 @@ const UserDashboard = () => {
   console.log(universities)
 
   const filteredUniversities = universities.filter((uni) => {
-/* COME BACK!
-    const matchesSearch =
-      uni.programTitle?.toLowerCase().includes(search.toLowerCase());
-
-    const matchesLevel =
-      level === '' || uni.level === level;
-
-    const matchesSpecialisation =
-      specialisation === '' || uni.specialisation === specialisation; */
+    /* COME BACK!
+        const matchesSearch =
+          uni.programTitle?.toLowerCase().includes(search.toLowerCase());
+    
+        const matchesLevel =
+          level === '' || uni.level === level;
+    
+        const matchesSpecialisation =
+          specialisation === '' || uni.specialisation === specialisation; */
 
     const matchesCountry =
       country === '' || uni.country === country;
-/*COME BACK!
-    return matchesSearch && matchesLevel && matchesSpecialisation && matchesCountry; */
+    /*COME BACK!
+        return matchesSearch && matchesLevel && matchesSpecialisation && matchesCountry; */
 
     return matchesCountry;
   });
 
-  console.log(filteredUniversities)
+  console.log(filteredUniversities) 
 
   return (
     <div className="dashboard-container">
@@ -82,60 +87,60 @@ const UserDashboard = () => {
           Browse international universities and submit your application directly through ScholarLink.
         </p>
       </div>
+      <div className="dashboard-layout">
+        {/*I am trying to make both containers side by side and not vertical*/}
+        <div className="filter-container">
 
-      <div className="filter-container">
+         {/* <h3>Filter</h3>
 
-        <h3>Filter</h3>
+          <div className="filter-group">
 
-        <input
-          type="text"
-          placeholder="Search by Program Title"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+            <select onChange={(e) => setLevel(e.target.value)}>
+              <option value="">Select Level of Interest</option>
+              <option value="Bachelor">Bachelor</option>
+              <option value="Master">Master</option>
+              <option value="PhD">PhD</option>
+            </select>
 
-        <div className="filter-group">
+          </div>
 
-          <label>Level of Interest</label>
-          <select onChange={(e) => setLevel(e.target.value)}>
-            <option value="">Select Level of Interest</option>
-            <option value="Bachelor">Bachelor</option>
-            <option value="Master">Master</option>
-            <option value="PhD">PhD</option>
-          </select>
+           <div className="filter-group">
 
+            <select onChange={(e) => setSpecialisation(e.target.value)}>
+              <option value="">Select Area of Specialisation</option>
+              <option value="Accounting">Accounting</option>
+              <option value="Architecture">Architecture</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Engineering">Engineering</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Medicine">Medicine</option>
+            </select>
+
+          </div> 
+
+          <div className="filter-group">
+
+            <select onChange={(e) => setCountry(e.target.value)}>
+              <option value="">All Countries</option>
+              <option value="Mauritius">Mauritius</option>
+              <option value="UK">United Kingdom</option>
+              <option value="USA">Bulgaria</option>
+            </select>
+
+          </div> */}
         </div>
 
-        <div className="filter-group">
+      </div> 
 
-          <label>Area of Specialisation</label>
 
-          <select onChange={(e) => setSpecialisation(e.target.value)}>
-            <option value="">Select Area of Specialisation</option>
-            <option value="Accounting">Accounting</option>
-            <option value="Architecture">Architecture</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Engineering">Engineering</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Medicine">Medicine</option>
-          </select>
+      <Link to="/profile" className="profile-nav-btn">
+        My Profile
+      </Link>
 
-        </div>
+      <button onClick={() => navigate('/applications')} className="applications-button">
+        My Applications
+      </button>
 
-        <div className="filter-group">
-
-          <label>Country</label>
-
-          <select onChange={(e) => setCountry(e.target.value)}>
-            <option value="">All Countries</option> 
-            <option value="Mauritius">Mauritius</option>
-            <option value="UK">United Kingdom</option>
-            <option value="USA">Bulgaria</option>
-          </select>
-
-        </div>
-
-      </div>
 
       <div className="university-grid">
         {filteredUniversities.map((uni) => (
@@ -155,6 +160,7 @@ const UserDashboard = () => {
             >
               Apply to University
             </button>
+
 
           </div>
         ))}

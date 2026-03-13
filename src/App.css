@@ -177,7 +177,7 @@ input:focus {
   box-shadow: 0 0 8px rgba(21, 128, 120, 0.2);
 }
 
-/*login and signup*/
+/*login*/
 .login-container {
   display: flex;
   flex-direction: column;
@@ -260,118 +260,113 @@ input:focus {
 
 /*admin dashboard*/
 
-:root {
-  --admin-dark: #0f172a;
-  --admin-blue: #2563eb;
-  --admin-bg: #f8fafc;
+.admin-dashboard {
+    max-width: 100vw;
+    max-height: 100wh !important;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: sans-serif;
+    background-image: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%) ;
+    color: white;
+    padding-top: 120px;
 }
 
-.admin-container {
-  display: flex;
-  min-height: 100vh;
-  background-color: var(--admin-bg);
-  font-family: 'Inter', sans-serif;
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
 }
 
-.admin-sidebar {
-  width: 250px;
-  background-color: var(--admin-dark);
-  color: white;
-  position: fixed;
-  height: 100vh;
+.logout-button {
+    background-color: var(--light-teal);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.sidebar-logo {
-  padding: 30px 20px;
-  border-bottom: 1px solid #1e293b;
+.admin-controls {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
 }
 
-.nav-item {
-  display: block;
-  width: 100%;
-  padding: 15px 25px;
-  background: none;
-  border: none;
-  color: #94a3b8;
-  text-align: left;
-  cursor: pointer;
-  transition: 0.2s;
+.action-button {
+    background-color: var(--light-teal);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.nav-item:hover, .nav-item.active {
-  background-color: #1e293b;
-  color: white;
+.action-button.secondary {
+    background-color: var(--light-teal);
 }
 
-.logout-link { color: #ef4444 !important; margin-top: 50px; }
-
-.admin-main {
-  margin-left: 250px;
-  flex: 1;
-  padding: 40px;
+.action-button {
+    background-color: var(--light-teal);
 }
 
-.admin-topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
+.uni-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    background: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
 }
 
-.admin-status { color: #64748b; font-size: 0.9rem; }
-
-.add-btn {
-  background: var(--admin-blue);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
+.uni-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-.form-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+.save-button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-.admin-form {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  width: 400px;
-  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #e2e8f0;
-  border-radius: 6px;
+.admin-table th, .admin-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
-.save-btn { background: #10b981; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
-.cancel-btn { background: #e2e8f0; margin-left: 10px; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; }
-
-.admin-table-container {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+.admin-table th {
+    background-color: var(--light-teal);
 }
 
-.admin-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-.admin-table th { text-align: left; padding: 15px; background: #f8fafc; color: #64748b; }
-.admin-table td { padding: 15px; border-top: 1px solid #f1f5f9; }
+.delete-icon-btn {
+    color: var(--light-teal);
+    border: 1px solid var(--light-teal);
+    background: transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
 
+.delete-icon-btn:hover {
+    background-color: var(--light-teal);
+    color: white;
+}
 
 /*User dashboard*/
 
@@ -381,7 +376,7 @@ input:focus {
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
 
-  background-image: url("https://res.cloudinary.com/dco9lqvij/image/upload/v1773096482/Scholarlink_website_web_dev_ylzreu.png");
+  background-image: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -399,29 +394,48 @@ input:focus {
 
 .dashboard-header h2 {
   font-size: 34px;
-  color: #042a4f;
+  color: var(--light-teal);
   
 }
 
 .dashboard-header p {
-  color: #042a4f;
+  color: var(--light-teal);
   font-size: 16px;
   margin-top: 10px;
 }
 
 /* GRID */
 
+
+.dashboard-layout {
+  display: flex;
+  gap: 30px;
+}
+
+.left-sidebar {
+  flex: 0 0 300px;
+  margin-top: 0;
+}
+
+.right-content {
+  flex: 1;
+  margin-top: 0;
+}
+
 .university-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding-left: 25%;
+  padding-top: 0;
 }
+
 
 /* CARD */
 
 .uni-card {
   background: white;
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
 
   display: flex;
@@ -430,6 +444,8 @@ input:focus {
 
   border: 1px solid #e2e8f0;
   transition: all 0.25s ease;
+
+  padding-top: 1%;
 }
 
 .uni-card:hover {
@@ -457,7 +473,7 @@ input:focus {
   border: none;
   border-radius: 8px;
 
-  background: #2563eb;
+  background: var(--light-teal);
   color: white;
 
   font-weight: 600;
@@ -468,4 +484,328 @@ input:focus {
 
 .apply-btn:hover {
   background: #1d4ed8;
+}
+
+.filter-container {
+  align-items: left;
+  color: var(--light-teal);
+}
+
+.filter-group {
+  color: white;
+}
+
+
+/*signup*/
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.signup-container h2 {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  color: #042a4f;
+  letter-spacing: 1px;
+}
+
+.signup-container form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.signup-btn {
+  background: #008080; 
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.signup-btn:hover {
+  background: var(--light-teal);
+  transform: translateY(-2px);
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  color: white;
+}
+
+.signup-container h2 {
+  margin-bottom: 25px;
+  font-size: 1.6rem;
+  color: #042a4f; 
+  letter-spacing: 1px;
+}
+
+.signup-container form {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: left; 
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.signup-btn {
+  background: var(--light-teal); 
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.signup-btn:hover {
+  background: var(--light-teal);
+  transform: translateY(-2px);
+}
+
+.login-link {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+/*MyApplications page*/
+/* Container for the MyApplications page */
+.apps-container {
+  min-height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%) !important;
+  background-image: url("https://res.cloudinary.com/dco9lqvij/image/upload/v1773096482/Scholarlink_website_web_dev_ylzreu.png");
+  color: white !important;
+  padding: 40px 20px !important;
+  box-sizing: border-box;
+  padding-top: 125px !important;
+}
+
+.apps-container h2 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+
+.apps-container table {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  margin: 0 auto;
+}
+
+.apps-container thead tr {
+  background: #042a4f !important; 
+  color: white !important;
+}
+
+.apps-container th, 
+.apps-container td {
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 15px !important;
+}
+
+.apps-container p {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+}
+
+/*Student profile page*/
+
+.profile-form-container {
+  min-height: 100vh;
+  width: 100%;
+ 
+  background: radial-gradient(circle, rgba(2, 48, 40, 1) 0%, rgba(0, 0, 0, 1) 100%) !important;
+  color: white !important;
+  box-sizing: border-box;
+  
+  /* To push the form down. I WILL CHANGE IT HERE IF IT STAYS UP */
+  padding-top: 120px !important; 
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-form-container h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #00ffcc; 
+}
+
+.profile-form {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.05); 
+  padding: 40px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-row input, .form-row select {
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+input, select {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #111;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input:focus, select:focus {
+  border-color: #00ffcc;
+}
+
+input:disabled {
+  background: #222;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.save-btn {
+  background: #00ffcc;
+  color: #000;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.save-btn:hover {
+  background: #00ccaa;
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+  }
 }

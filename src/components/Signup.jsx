@@ -6,6 +6,7 @@ const Signup = () => {
     const [name, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
     
     const handleEmailChange = (e) => setEmail(e.target.value);
@@ -16,7 +17,7 @@ const Signup = () => {
         e.preventDefault();
         const body = {
             email,
-            setName,
+            setUsername,
             password
         }
 
@@ -25,24 +26,25 @@ const Signup = () => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/auth/signup`, body)
             console.log("user registered", response)
+            setMessage("User registered successfully! Redirecting...");
         } catch (error) {
             console.log(error)
         }
     };
         
 
-    return (
+    return ( 
 
-        <div>
+        <div className="login-container">
 
             <h2>Create ScholarLink Account</h2>
 
             <form onSubmit={handleSignup}>
 
-                    <label>Username</label>
+                    <label>Full Name</label>
                     <input
                     type="text"
-                    placeholder="Username"
+                    placeholder="Full Name"
                     value={name}
                     onChange={handleUsernameChange}
                     />
@@ -69,7 +71,10 @@ const Signup = () => {
 
                     <br />
                 
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="signup-btn">Sign Up</button>
+                <p className="login-link" onClick={() => navigate('/login')}>
+                    Already have an account? <span onClick={() => navigate('/login')}>Login</span>
+                </p>
             </form>
         </div>
     );
